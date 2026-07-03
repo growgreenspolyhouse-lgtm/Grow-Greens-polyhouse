@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Greens Farm Fresh | Sustainable AgriTech Partnership</title>
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #4caf50;
+            --accent-color: #81c784;
+            --dark-text: #212121;
+            --light-bg: #f9fbf7;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--dark-text);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(46, 125, 50, 0.85), rgba(46, 125, 50, 0.7)), url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            color: var(--white);
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .btn {
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s, background-color 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background-color: #f0f0f0;
+        }
+
+        /* Section Global Settings */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        /* Problem & Solution Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Value Propositions */
+        .vp-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .vp-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        /* Table Design */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f9f2;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            width: 320px;
+        }
+
+        .team-member h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .team-member .role {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1b5e20;
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            nav a { margin: 0 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">GROW GREENS FARM FRESH</a>
+            <nav>
+                <a href="#about">About Us</a>
+                <a href="#challenges">Challenges</a>
+                <a href="#solution">Our Solution</a>
+                <a href="#team">Team</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" style="max-width:100%; width:100%;">
+        <h1>GROW GREENS FARM FRESH</h1>
+        <p>An innovative Agriculture Partnership Model with Farmers driving climate-resilient, technology-driven agriculture.</p>
+        <a href="#about" class="btn">Learn More</a>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Who is Grow Greens Farm Fresh</h2>
+        <div class="about-grid">
+            <div>
+                <p style="font-size: 1.2rem; margin-bottom: 1.5rem;"><strong>Grow Greens Farm Fresh</strong> is an AgriTech Company that partners with farmers to grow high-quality vegetables using protected cultivation (polyhouse) technology.</p>
+                <p>We help farmers reduce climate-related risks, improve crop quality and yield, and achieve better market prices through comprehensive technical support and reliable market linkage services.</p>
+            </div>
+            <div style="display: grid; gap: 1rem;">
+                <div class="card">
+                    <h3>Our Mission</h3>
+                    <p>To empower farmers with climate-resilient protected cultivation solutions and improve their income through technology-driven agriculture.</p>
+                </div>
+                <div class="card">
+                    <h3>Our Vision</h3>
+                    <p>To become a leading AgriTech company enabling sustainable, profitable, and high-quality vegetable production across India.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="challenges" style="background-color: #f1f8e9; max-width:100%; width:100%;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <h2 class="section-title">The Market Challenge</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Unpredictable Climate</h3>
+                    <p>Indian farmers face significant challenges due to unpredictable climate change, extreme temperatures, and irregular rainfall.</p>
+                </div>
+                <div class="card">
+                    <h3>Crop & Income Losses</h3>
+                    <p>Severe pest attacks and fluctuating market prices often result in heavy crop losses, poor quality produce, lower productivity, and drastically reduced income.</p>
+                </div>
+                <div class="card">
+                    <h3>High Barriers to Entry</h3>
+                    <p>Small and medium farmers struggle to adopt modern protected cultivation technologies due to high initial costs, limited technical expertise, and a lack of market access.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution">
+        <h2 class="section-title">The Technology & Solution</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto; font-size: 1.1rem;">
+            We provide robust protected cultivation solutions through scientifically designed polyhouse structures, precision crop selection, and advanced agricultural methods.
+        </p>
+        
+        <div class="grid-3" style="margin-bottom: 4rem;">
+            <div class="card">
+                <h3>Advanced Infrastructure</h3>
+                <p>Utilizing climate-controlled environments, automated fertigation systems, and rigorous precision crop monitoring techniques.</p>
+            </div>
+            <div class="card">
+                <h3>Innovative Growth Methods</h3>
+                <p>Implementing pioneering agricultural growth enhancements, including music-based plant stimulation techniques to maximize yields.</p>
+            </div>
+            <div class="card">
+                <h3>End-to-End Support</h3>
+                <p>Providing seamless production planning, constant quality control, specialized technical guidance, and reliable market linkages.</p>
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 1.5rem; text-align: center; color: var(--primary-color);">Customer Value Proposition</h3>
+        <div class="vp-list">
+            <div class="vp-item">Protection against climate-related crop damage</div>
+            <div class="vp-item">Improved crop quality and absolute consistency</div>
+            <div class="vp-item">Increased profitability and sustainable farming incomes</div>
+            <div class="vp-item">Drastically higher yields compared to traditional farming</div>
+            <div class="vp-item">Dedicated hands-on technical support throughout the crop cycle</div>
+            <div class="vp-item">Access to premium buyers, better pricing, and organized markets</div>
+        </div>
+        
+        <p style="margin-top: 3rem; text-align: center; font-style: italic; color: #555;">
+            Our solution is completely <strong>market-ready</strong> and optimized for immediately scalable high-value crops like cucumber, zucchini, capsicum, and cherry tomatoes.
+        </p>
+    </section>
+
+    <section id="landscape" style="background-color: #f1f8e9; max-width:100%; width:100%;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <h2 class="section-title">Competitive Advantage & Business Model</h2>
+            <div class="about-grid">
+                <div class="card">
+                    <h3>Why Choose Grow Greens?</h3>
+                    <ul style="padding-left: 1.25rem; margin-top: 0.5rem;">
+                        <li>Unique farmer partnership-based business model.</li>
+                        <li>End-to-end support system from setup directly to marketing.</li>
+                        <li>Scientific crop planning and high-value vegetable specialization.</li>
+                        <li>Scalable blueprint optimized for farmers across Gujarat and India.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Target Customers & Revenue</h3>
+                    <p><strong>Target Base:</strong> Small/medium farmers, progressive growers, Agribusiness entrepreneurs, and Farmer Producer Organizations (FPOs).</p>
+                    <p style="margin-top: 0.5rem;"><strong>Revenue Streams:</strong> Diverse income generated via crop sales, structured revenue-sharing partnerships, and vegetable exports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <h2 class="section-title">Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <h3>Siddharth Boricha</h3>
+                <div class="role">Founder & CEO</div>
+                <p style="font-size: 0.95rem; color: #555;">B.Voc Graduate, currently pursuing an MBA at Parul University. Strong expert experience handling business development, high-level corporate partnerships, and overall project management.</p>
+            </div>
+            <div class="team-member">
+                <h3>Yash Boricha</h3>
+                <div class="role">Agriculture Operations Manager</div>
+                <p style="font-size: 0.95rem; color: #555;">M.Sc in Biotechnology from Atmiya University. Oversees scientific operations, precision agricultural systems, and crop optimization tech metrics.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Grow Greens Farm Fresh. Enabling Sustainable, Profitable, and High-Quality Agriculture across India.</p>
+    </footer>
+
+</body>
+</html>
